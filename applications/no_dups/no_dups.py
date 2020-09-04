@@ -1,6 +1,12 @@
 def no_dups(s):
     # Your code here
+    dictionary = dict()
 
+    for word in s.split():
+        if word not in dictionary:
+            dictionary[word] = word
+
+    return " ".join((word for word in dictionary.values()))
 
 
 if __name__ == "__main__":

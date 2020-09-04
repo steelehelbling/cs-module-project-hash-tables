@@ -1,6 +1,43 @@
 def word_count(s):
     # Your code here
 
+    inside = {}
+    remove = [
+    '"', 
+    ':', 
+    ';', 
+    ',', 
+    '.', 
+    '-', 
+    '+', 
+    '=', 
+    '/', 
+    '\\', 
+    '|', 
+    '[', 
+    ']', 
+    '{', 
+    '}', 
+    '(', 
+    ')', 
+    '*', 
+    '^', 
+    '&']
+
+    for key in remove:
+        s = s.replace(key, "")
+
+    split_arry = s.split()
+
+    for word in split_arry:
+        word = word.lower()
+
+        if word in inside is not None:
+            inside[word] = inside[word] + 1
+        else:
+            inside[word] = 1
+
+    return inside   
 
 
 if __name__ == "__main__":
